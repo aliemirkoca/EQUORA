@@ -1,0 +1,25 @@
+# Environment & secrets
+.env
+
+# Raw datasets (>100 MB files exceed GitHub's single-file limit)
+raw_data/
+
+# Python caches & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE settings
+.idea/
+.vscode/
+
+# OS & logs
+.DS_Store
+Thumbs.db
+*.log

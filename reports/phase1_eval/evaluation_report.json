@@ -1,0 +1,466 @@
+{
+  "threshold_optimization": {
+    "optimal_threshold": 0.54,
+    "default_threshold": 0.5,
+    "fn_cost_mult": 1.0,
+    "fp_cost_mult": 0.25,
+    "search_range": [
+      0.1,
+      0.9,
+      0.01
+    ],
+    "val_optimal_total_loss_tl": 2237463.8,
+    "val_optimal_fn_loss_tl": 542379.6,
+    "val_optimal_fp_loss_tl": 1695084.2,
+    "val_default_050_total_loss_tl": 2311059.23,
+    "val_default_050_fn_loss_tl": 386757.5,
+    "val_default_050_fp_loss_tl": 1924301.73,
+    "val_loss_reduction_vs_050_pct": 3.18,
+    "scan_summary": [
+      {
+        "threshold": 0.1,
+        "total_loss_tl": 3159566.57,
+        "fn_loss_tl": 13685.4,
+        "fp_loss_tl": 3145881.17
+      },
+      {
+        "threshold": 0.15,
+        "total_loss_tl": 3074016.0,
+        "fn_loss_tl": 24280.8,
+        "fp_loss_tl": 3049735.2
+      },
+      {
+        "threshold": 0.2,
+        "total_loss_tl": 2992620.42,
+        "fn_loss_tl": 32088.3,
+        "fp_loss_tl": 2960532.12
+      },
+      {
+        "threshold": 0.25,
+        "total_loss_tl": 2909886.1,
+        "fn_loss_tl": 49099.2,
+        "fp_loss_tl": 2860786.9
+      },
+      {
+        "threshold": 0.3,
+        "total_loss_tl": 2822085.4,
+        "fn_loss_tl": 84850.0,
+        "fp_loss_tl": 2737235.4
+      },
+      {
+        "threshold": 0.35,
+        "total_loss_tl": 2701291.52,
+        "fn_loss_tl": 116395.2,
+        "fp_loss_tl": 2584896.32
+      },
+      {
+        "threshold": 0.4,
+        "total_loss_tl": 2559270.27,
+        "fn_loss_tl": 177877.7,
+        "fp_loss_tl": 2381392.57
+      },
+      {
+        "threshold": 0.45,
+        "total_loss_tl": 2415765.4,
+        "fn_loss_tl": 263003.8,
+        "fp_loss_tl": 2152761.6
+      },
+      {
+        "threshold": 0.5,
+        "total_loss_tl": 2311059.23,
+        "fn_loss_tl": 386757.5,
+        "fp_loss_tl": 1924301.73
+      },
+      {
+        "threshold": 0.54,
+        "total_loss_tl": 2237463.8,
+        "fn_loss_tl": 542379.6,
+        "fp_loss_tl": 1695084.2
+      },
+      {
+        "threshold": 0.55,
+        "total_loss_tl": 2250821.95,
+        "fn_loss_tl": 594347.8,
+        "fp_loss_tl": 1656474.15
+      },
+      {
+        "threshold": 0.6,
+        "total_loss_tl": 2350697.15,
+        "fn_loss_tl": 927681.7,
+        "fp_loss_tl": 1423015.45
+      },
+      {
+        "threshold": 0.65,
+        "total_loss_tl": 2392927.38,
+        "fn_loss_tl": 1304542.5,
+        "fp_loss_tl": 1088384.88
+      },
+      {
+        "threshold": 0.7,
+        "total_loss_tl": 2637491.45,
+        "fn_loss_tl": 1885186.1,
+        "fp_loss_tl": 752305.35
+      },
+      {
+        "threshold": 0.75,
+        "total_loss_tl": 3167390.15,
+        "fn_loss_tl": 2646223.8,
+        "fp_loss_tl": 521166.35
+      },
+      {
+        "threshold": 0.8,
+        "total_loss_tl": 3878153.17,
+        "fn_loss_tl": 3584196.0,
+        "fp_loss_tl": 293957.17
+      },
+      {
+        "threshold": 0.85,
+        "total_loss_tl": 4689222.5,
+        "fn_loss_tl": 4554938.4,
+        "fp_loss_tl": 134284.1
+      },
+      {
+        "threshold": 0.9,
+        "total_loss_tl": 5841065.97,
+        "fn_loss_tl": 5807642.1,
+        "fp_loss_tl": 33423.88
+      }
+    ]
+  },
+  "test_classification_all": {
+    "default_050": {
+      "threshold": 0.5,
+      "roc_auc": 0.8496,
+      "pr_auc": 0.9061,
+      "precision": 0.7854,
+      "recall": 0.882,
+      "f1_score": 0.8309
+    },
+    "optimal_theta": {
+      "threshold": 0.54,
+      "roc_auc": 0.8496,
+      "pr_auc": 0.9061,
+      "precision": 0.8011,
+      "recall": 0.8544,
+      "f1_score": 0.8269
+    },
+    "row_financial_error_050_tl": 1848145.9,
+    "row_financial_error_opt_tl": 1839616.27,
+    "row_fn_error_opt_tl": 555170.6,
+    "row_fp_error_opt_tl": 1284445.67
+  },
+  "test_classification_dte_ge_2": {
+    "rows": 4935,
+    "default_050": {
+      "threshold": 0.5,
+      "roc_auc": 0.8064,
+      "pr_auc": 0.8264,
+      "precision": 0.7285,
+      "recall": 0.8446,
+      "f1_score": 0.7823
+    },
+    "optimal_theta": {
+      "threshold": 0.54,
+      "roc_auc": 0.8064,
+      "pr_auc": 0.8264,
+      "precision": 0.7466,
+      "recall": 0.8059,
+      "f1_score": 0.7751
+    }
+  },
+  "test_regression": {
+    "conditional_positive_waste_rows": 4279,
+    "conditional_q_hat": {
+      "mae": 5.3538,
+      "rmse": 8.1417,
+      "wape": 0.3731,
+      "wape_pct": 37.31
+    },
+    "overall_all_rows": 6813,
+    "overall_expected_w_hat": {
+      "mae": 5.2889,
+      "rmse": 8.1655,
+      "wape": 0.5868,
+      "wape_pct": 58.68
+    }
+  },
+  "business_metrics_test": {
+    "total_unique_test_batches": 1362,
+    "total_waste_batches": 756,
+    "caught_early_48h_waste_batches": 681,
+    "missed_waste_batches": 75,
+    "false_positive_batches_48h": 314,
+    "early_catch_rate_by_batch_pct": 90.08,
+    "early_catch_rate_by_units_pct": 95.35,
+    "early_catch_rate_by_tl_pct": 97.75,
+    "exact_dte2_snapshot_recall_pct": 84.26,
+    "total_test_waste_units": 10623,
+    "rescueable_units_48h": 10129,
+    "rescueable_gross_value_tl": 1559247.3,
+    "baseline_no_action_loss_tl": 1595138.1,
+    "equora_missed_waste_fn_loss_tl": 35890.8,
+    "equora_tp_discount_cost_tl": 389811.82,
+    "equora_fp_discount_cost_tl": 471633.35,
+    "equora_estimated_total_loss_tl": 897335.98,
+    "equora_net_savings_tl": 697802.12,
+    "equora_loss_reduction_pct": 43.75,
+    "esg_co2_impact": {
+      "baseline_waste_co2_kg": 54401.67,
+      "baseline_waste_co2_tons": 54.402,
+      "prevented_co2_48h_kg": 53513.99,
+      "prevented_co2_48h_tons": 53.514,
+      "prevented_co2_48h_pct": 98.37,
+      "prevented_equivalent_car_km": 314788.2,
+      "prevented_equivalent_tree_years": 2458.2,
+      "category_breakdown": [
+        {
+          "category": "Et & Tavuk",
+          "waste_units": 2709.0,
+          "waste_tl": 1044988.9,
+          "baseline_co2_kg": 40973.7,
+          "prevented_co2_48h_kg": 40372.8
+        },
+        {
+          "category": "Süt & Süt Ürünleri",
+          "waste_units": 1368.0,
+          "waste_tl": 158674.2,
+          "baseline_co2_kg": 6289.35,
+          "prevented_co2_48h_kg": 6270.45
+        },
+        {
+          "category": "Şarküteri",
+          "waste_units": 427.0,
+          "waste_tl": 66480.3,
+          "baseline_co2_kg": 2513.02,
+          "prevented_co2_48h_kg": 2513.02
+        },
+        {
+          "category": "Fırın & Unlu Mamul",
+          "waste_units": 2838.0,
+          "waste_tl": 110016.2,
+          "baseline_co2_kg": 1775.83,
+          "prevented_co2_48h_kg": 1557.06
+        },
+        {
+          "category": "Meyve & Sebze",
+          "waste_units": 2119.0,
+          "waste_tl": 129791.7,
+          "baseline_co2_kg": 1665.8,
+          "prevented_co2_48h_kg": 1638.12
+        },
+        {
+          "category": "Hazır Gıda",
+          "waste_units": 1162.0,
+          "waste_tl": 85186.8,
+          "baseline_co2_kg": 1183.97,
+          "prevented_co2_48h_kg": 1162.53
+        }
+      ],
+      "methodology": {
+        "source": "Poore & Nemecek (2018, Science) + FAO Food Wastage Footprint + US EPA",
+        "factors_kg_co2e_per_kg": {
+          "Et & Tavuk (Dana)": 27.0,
+          "Et & Tavuk (Kuzu)": 24.0,
+          "Et & Tavuk (Tavuk/Piliç)": 6.9,
+          "Şarküteri (Kırmızı Et)": 18.0,
+          "Şarküteri (Piliç/Hindi)": 7.5,
+          "Süt & Süt Ürünleri (Peynir)": 13.5,
+          "Süt & Süt Ürünleri (Yoğurt)": 3.5,
+          "Süt & Süt Ürünleri (Süt)": 3.15,
+          "Hazır Gıda": 3.2,
+          "Fırın & Unlu Mamul": 1.57,
+          "Meyve & Sebze (Kuruyemiş)": 2.3,
+          "Meyve & Sebze (Taze)": 0.9
+        },
+        "tree_absorption_kg_co2_per_year": 21.77,
+        "car_emission_kg_co2_per_km": 0.17
+      }
+    }
+  },
+  "feature_importances_top15": {
+    "classifier": [
+      {
+        "feature": "risk_index",
+        "gain": 110421.7,
+        "gain_pct": 45.69,
+        "split": 597
+      },
+      {
+        "feature": "life_ratio",
+        "gain": 29030.73,
+        "gain_pct": 12.01,
+        "split": 456
+      },
+      {
+        "feature": "days_to_expiry",
+        "gain": 23396.92,
+        "gain_pct": 9.68,
+        "split": 230
+      },
+      {
+        "feature": "remaining_ratio",
+        "gain": 23080.4,
+        "gain_pct": 9.55,
+        "split": 506
+      },
+      {
+        "feature": "days_of_cover",
+        "gain": 6741.3,
+        "gain_pct": 2.79,
+        "split": 202
+      },
+      {
+        "feature": "weekend_days_left",
+        "gain": 6266.94,
+        "gain_pct": 2.59,
+        "split": 273
+      },
+      {
+        "feature": "unit_price",
+        "gain": 5048.58,
+        "gain_pct": 2.09,
+        "split": 391
+      },
+      {
+        "feature": "initial_in_qty",
+        "gain": 5036.17,
+        "gain_pct": 2.08,
+        "split": 377
+      },
+      {
+        "feature": "vel_std_7d",
+        "gain": 3822.9,
+        "gain_pct": 1.58,
+        "split": 293
+      },
+      {
+        "feature": "vel_14d",
+        "gain": 3748.24,
+        "gain_pct": 1.55,
+        "split": 302
+      },
+      {
+        "feature": "vel_7d",
+        "gain": 3672.97,
+        "gain_pct": 1.52,
+        "split": 281
+      },
+      {
+        "feature": "days_since_in",
+        "gain": 2977.79,
+        "gain_pct": 1.23,
+        "split": 142
+      },
+      {
+        "feature": "shelf_life_days",
+        "gain": 2853.57,
+        "gain_pct": 1.18,
+        "split": 208
+      },
+      {
+        "feature": "effective_stock_qty",
+        "gain": 2511.03,
+        "gain_pct": 1.04,
+        "split": 172
+      },
+      {
+        "feature": "rolling_3d_avg_discount",
+        "gain": 2224.68,
+        "gain_pct": 0.92,
+        "split": 171
+      }
+    ],
+    "regressor": [
+      {
+        "feature": "remaining_qty",
+        "gain": 7612396.47,
+        "gain_pct": 29.32,
+        "split": 454
+      },
+      {
+        "feature": "risk_index",
+        "gain": 5160232.84,
+        "gain_pct": 19.87,
+        "split": 508
+      },
+      {
+        "feature": "effective_stock_qty",
+        "gain": 3527485.01,
+        "gain_pct": 13.59,
+        "split": 482
+      },
+      {
+        "feature": "life_ratio",
+        "gain": 2216419.17,
+        "gain_pct": 8.54,
+        "split": 357
+      },
+      {
+        "feature": "initial_in_qty",
+        "gain": 2016398.22,
+        "gain_pct": 7.77,
+        "split": 351
+      },
+      {
+        "feature": "days_to_expiry",
+        "gain": 1199446.78,
+        "gain_pct": 4.62,
+        "split": 189
+      },
+      {
+        "feature": "vel_7d",
+        "gain": 676026.48,
+        "gain_pct": 2.6,
+        "split": 303
+      },
+      {
+        "feature": "vel_std_7d",
+        "gain": 641995.8,
+        "gain_pct": 2.47,
+        "split": 318
+      },
+      {
+        "feature": "unit_price",
+        "gain": 488796.96,
+        "gain_pct": 1.88,
+        "split": 326
+      },
+      {
+        "feature": "weekend_days_left",
+        "gain": 384242.35,
+        "gain_pct": 1.48,
+        "split": 150
+      },
+      {
+        "feature": "vel_14d",
+        "gain": 379390.55,
+        "gain_pct": 1.46,
+        "split": 244
+      },
+      {
+        "feature": "remaining_ratio",
+        "gain": 323135.03,
+        "gain_pct": 1.24,
+        "split": 200
+      },
+      {
+        "feature": "rolling_3d_avg_discount",
+        "gain": 245746.8,
+        "gain_pct": 0.95,
+        "split": 165
+      },
+      {
+        "feature": "days_of_cover",
+        "gain": 194480.37,
+        "gain_pct": 0.75,
+        "split": 149
+      },
+      {
+        "feature": "shelf_life_days",
+        "gain": 167282.67,
+        "gain_pct": 0.64,
+        "split": 92
+      }
+    ]
+  }
+}

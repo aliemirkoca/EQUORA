@@ -1,0 +1,47 @@
+{
+  "feature_columns": [
+    "upstream_fefo_qty",
+    "effective_stock_qty",
+    "active_batch_count",
+    "remaining_qty",
+    "initial_in_qty",
+    "daily_out_qty",
+    "days_to_expiry",
+    "remaining_ratio",
+    "life_ratio",
+    "days_since_in",
+    "vel_3d",
+    "vel_7d",
+    "vel_14d",
+    "vel_std_7d",
+    "demand_momentum",
+    "days_of_cover",
+    "risk_index",
+    "lag1_discount_rate",
+    "rolling_3d_avg_discount",
+    "day_of_week",
+    "is_weekend",
+    "is_payday_window",
+    "weekend_days_left",
+    "category_code",
+    "store_id",
+    "unit_price",
+    "shelf_life_days"
+  ],
+  "categorical_features": [
+    "category_code",
+    "store_id"
+  ],
+  "categorical_feature_indices": [
+    23,
+    24
+  ],
+  "category_mapping": {
+    "Et & Tavuk": 0,
+    "Fırın & Unlu Mamul": 1,
+    "Hazır Gıda": 2,
+    "Meyve & Sebze": 3,
+    "Süt & Süt Ürünleri": 4,
+    "Şarküteri": 5
+  }
+}

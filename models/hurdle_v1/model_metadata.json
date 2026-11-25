@@ -1,0 +1,90 @@
+{
+  "model_version": "hurdle_v1",
+  "trained_at_utc": "2026-11-25T19:16:39.077378+00:00",
+  "random_state": 42,
+  "feature_columns": [
+    "upstream_fefo_qty",
+    "effective_stock_qty",
+    "active_batch_count",
+    "remaining_qty",
+    "initial_in_qty",
+    "daily_out_qty",
+    "days_to_expiry",
+    "remaining_ratio",
+    "life_ratio",
+    "days_since_in",
+    "vel_3d",
+    "vel_7d",
+    "vel_14d",
+    "vel_std_7d",
+    "demand_momentum",
+    "days_of_cover",
+    "risk_index",
+    "lag1_discount_rate",
+    "rolling_3d_avg_discount",
+    "day_of_week",
+    "is_weekend",
+    "is_payday_window",
+    "weekend_days_left",
+    "category_code",
+    "store_id",
+    "unit_price",
+    "shelf_life_days"
+  ],
+  "categorical_features": [
+    "category_code",
+    "store_id"
+  ],
+  "categorical_feature_indices": [
+    23,
+    24
+  ],
+  "train_rows_all": 34360,
+  "val_rows_all": 7268,
+  "train_rows_positive_waste": 21549,
+  "val_rows_positive_waste": 4367,
+  "classifier_best_iteration": 179,
+  "regressor_best_iteration": 162,
+  "classifier_params": {
+    "objective": "binary",
+    "metric": [
+      "binary_logloss",
+      "average_precision"
+    ],
+    "boosting_type": "gbdt",
+    "n_estimators": 1000,
+    "learning_rate": 0.03,
+    "num_leaves": 31,
+    "max_depth": -1,
+    "min_child_samples": 30,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbose": -1
+  },
+  "regressor_params": {
+    "objective": "regression",
+    "metric": [
+      "rmse",
+      "mae"
+    ],
+    "boosting_type": "gbdt",
+    "n_estimators": 1000,
+    "learning_rate": 0.03,
+    "num_leaves": 31,
+    "max_depth": -1,
+    "min_child_samples": 20,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbose": -1
+  }
+}
