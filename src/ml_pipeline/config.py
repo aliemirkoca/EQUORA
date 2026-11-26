@@ -103,6 +103,7 @@ class MLConfig:
     # -------------------------------------------------------------------------
     # 4) Asimetrik Maliyet Katsayıları ve Eşik Arama Izgarası
     # -------------------------------------------------------------------------
+    # Legacy (Mod 1) katsayıları — geriye dönük kıyaslama (before/after) için korunur
     # FN: Fire olacak ürünü kaçırma maliyeti = birim fiyatın %100'ü kayıp
     FN_COST_MULT: float = 1.00
     # FP: Satılacak ürüne gereksiz indirim yapma maliyeti = %25 marj kaybı
@@ -110,6 +111,26 @@ class MLConfig:
     THRESHOLD_MIN: float = 0.10
     THRESHOLD_MAX: float = 0.90
     THRESHOLD_STEP: float = 0.01
+
+    # --- Faz 1.5 Rötuş Parametreleri ---
+    # Aşama 1 olasılık kalibrasyonu (Brier Score & ECE iyileştirmesi)
+    ENABLE_PROBABILITY_CALIBRATION: bool = True
+    CALIBRATION_METHOD: str = "isotonic"  # "isotonic" | "sigmoid" | "none"
+
+    # Aşama 2 koşullu regresör hedef/kayıp stratejisi ve ablation bayrağı
+    # Adaylar: "raw_l2" | "log1p_l2" | "raw_l1" | "poisson"
+    REGRESSOR_TARGET_MODE: str = "log1p_l2"
+    RUN_REGRESSOR_ABLATION: bool = True
+
+    # Tekil Tweedie Benchmark (1 < p < 2) ablation kıyaslaması
+    RUN_TWEEDIE_BENCHMARK: bool = True
+    TWEEDIE_VARIANCE_POWERS: tuple[float, ...] = (1.2, 1.4, 1.6, 1.8)
+
+    # Ekonomik-Tutarlı Maliyet Matrisi (Mod 2 — Faz 2A RL ile ortak birim ekonomisi)
+    UNIT_COST_RATIO: float = 0.65          # COGS / unit_price
+    DISPOSAL_COST_RATIO: float = 0.05      # İmha & operasyon / unit_price
+    FP_DISCOUNT_MARGIN_LOSS: float = 0.20  # Gereksiz indirim ortalama marj kaybı
+    THRESHOLD_OPT_MAX_DTE: int = 4         # Eşik optimizasyonunda aksiyon penceresi üst sınırı
 
     # -------------------------------------------------------------------------
     # 5) Model Hiperparametreleri ve Tekrarlanabilirlik
@@ -199,6 +220,14 @@ class MLConfig:
     @property
     def regressor_path(self) -> Path:
         return self.MODEL_DIR / "regressor.pkl"
+
+    @property
+    def calibrator_path(self) -> Path:
+        return self.MODEL_DIR / "calibrator.pkl"
+
+    @property
+    def tweedie_model_path(self) -> Path:
+        return self.MODEL_DIR / "tweedie_benchmark.pkl"
 
     @property
     def model_metadata_path(self) -> Path:

@@ -39,6 +39,7 @@ from src.ml_pipeline.hurdle_model import EquoraHurdleModel
 from src.ml_pipeline.inference import LiveInferenceResult, LiveRiskPredictor
 from src.ml_pipeline.snapshot_builder import DailySnapshotBuilder, SnapshotBuildResult
 from src.ml_pipeline.splitter import GroupTemporalSplitter, SplitResult
+from src.ml_pipeline.tweedie_benchmark import TweedieBenchmarkResult, TweedieWasteBenchmark
 
 
 class EquoraMLPipeline:
@@ -97,7 +98,7 @@ class EquoraMLPipeline:
         split_res = splitter.split()
 
         # ---------------------------------------------------------------------
-        # ADIM 4/6: İki Aşamalı Hurdle Model Eğitimi (EquoraHurdleModel)
+        # ADIM 4/6: İki Aşamalı Hurdle Model Eğitimi + Kalibrasyon & Ablation
         # ---------------------------------------------------------------------
         print("\n[ADIM 4/6] İki aşamalı LightGBM Hurdle modeli (EquoraHurdleModel) eğitiliyor...")
         model = EquoraHurdleModel(
@@ -109,11 +110,36 @@ class EquoraMLPipeline:
         saved_model_paths = model.save()
         print(
             f"  [OK] Sınıflandırıcı best_iter={train_meta['classifier_best_iteration']} "
-            f"(n={train_meta['train_rows_all']:,}) | "
-            f"Koşullu Regresör best_iter={train_meta['regressor_best_iteration']} "
+            f"(kalibrasyon={train_meta['calibration_method']}, aktif={train_meta['calibrator_active']}) | "
+            f"Koşullu Regresör [{train_meta['regressor_target_mode']}] "
+            f"best_iter={train_meta['regressor_best_iteration']} "
             f"(n_pos={train_meta['train_rows_positive_waste']:,})"
         )
         print(f"  [OK] Model artifact'leri kaydedildi: {self.config.MODEL_DIR}")
+
+        # ---------------------------------------------------------------------
+        # ADIM 4.5/6: Tekil Tweedie (1 < p < 2) Ablation Kıyaslaması
+        # ---------------------------------------------------------------------
+        tweedie_res: TweedieBenchmarkResult | None = None
+        if self.config.RUN_TWEEDIE_BENCHMARK:
+            print("\n[ADIM 4.5/6] Tekil Tweedie (1 < p < 2) ablation kıyaslaması çalıştırılıyor...")
+            tweedie_bench = TweedieWasteBenchmark(
+                config=self.config,
+                feature_columns=feat_res.feature_columns,
+                categorical_features=feat_res.categorical_features,
+            )
+            tweedie_res = tweedie_bench.fit_and_evaluate(
+                train_df=split_res.train_df,
+                val_df=split_res.val_df,
+                test_df=split_res.test_df,
+            )
+            print(
+                f"  [OK] En iyi Tweedie p*={tweedie_res.best_variance_power} | "
+                f"Test WAPE=%{tweedie_res.test_all_metrics['wape_pct']:.2f} | "
+                f"Kaydedildi: {self.config.tweedie_model_path.name}"
+            )
+        else:
+            print("\n[ADIM 4.5/6] Tweedie benchmark atlandı (--skip-benchmarks).")
 
         # ---------------------------------------------------------------------
         # ADIM 5/6: Maliyet Duyarlı Eşik Optimizasyonu ve Test Değerlendirmesi
@@ -124,9 +150,11 @@ class EquoraMLPipeline:
             model=model,
             val_df=split_res.val_df,
             test_df=split_res.test_df,
+            tweedie_result=tweedie_res,
         )
         print(
-            f"  [OK] Optimal eşik theta* = {eval_out.optimal_threshold:.2f} | "
+            f"  [OK] Ekonomik eşik theta* = {eval_out.optimal_threshold:.2f} "
+            f"(Legacy row_all = {eval_out.legacy_threshold:.2f}) | "
             f"Raporlar: {self.config.REPORT_DIR}"
         )
 
@@ -251,15 +279,38 @@ class EquoraMLPipeline:
 
         rc = reg["conditional_q_hat"]
         ro = reg["overall_expected_w_hat"]
-        print("\n    Regresyon Metrikleri (Test Seti):")
+        cal = report["calibration_and_regressor_ablation"]
+        tc = cal["test_calibration"]
+        hvt = report["hurdle_vs_tweedie_ablation"]
+        leg_th = th["legacy_row_all"]["optimal_threshold"]
+        bat_th = th["economic_action_window_batch"]["optimal_threshold"]
         print(
-            f"      * Koşullu (final_waste_qty > 0, q_hat, n={reg['conditional_positive_waste_rows']:,}): "
+            f"    Eşik Kıyaslaması: Ekonomik Pencere theta*={opt_th:.2f} "
+            f"(Parti={bat_th:.2f}) vs. Legacy row_all={leg_th:.2f}"
+        )
+        print(
+            f"    Kalibrasyon ({cal['calibration_method']}, aktif={cal['calibrator_active']}): "
+            f"Test Brier {tc['brier_raw']:.5f} -> {tc['brier_calibrated']:.5f} | "
+            f"ECE {tc['ece_10bin_raw']:.5f} -> {tc['ece_10bin_calibrated']:.5f}"
+        )
+        print("\n    Regresyon & Ablation Metrikleri (Test Seti):")
+        print(
+            f"      * Koşullu [{reg['regressor_target_mode']}] (W > 0, q_hat, n={reg['conditional_positive_waste_rows']:,}): "
             f"MAE={rc['mae']:.4f} | RMSE={rc['rmse']:.4f} | WAPE=%{rc['wape_pct']:.2f}"
         )
         print(
-            f"      * Birleşik Beklenen Fire (Tümü, W_hat, n={reg['overall_all_rows']:,})    : "
+            f"      * Hurdle Birleşik (Tümü, W_hat, n={reg['overall_all_rows']:,})        : "
             f"MAE={ro['mae']:.4f} | RMSE={ro['rmse']:.4f} | WAPE=%{ro['wape_pct']:.2f}"
         )
+        if hvt.get("tweedie") is not None:
+            tw = hvt["tweedie"]
+            tw_all = tw["test_all_metrics"]
+            print(
+                f"      * Tweedie Benchmark (p*={tw['best_variance_power']}, Tümü)             : "
+                f"MAE={tw_all['mae']:.4f} | RMSE={tw_all['rmse']:.4f} | WAPE=%{tw_all['wape_pct']:.2f} | "
+                f"W=0 ort. FP={tw['test_zero_waste_metrics']['mean_false_positive_qty']:.2f} "
+                f"(Hurdle={hvt['hurdle']['test_zero_waste_metrics']['mean_false_positive_qty']:.2f})"
+            )
 
         # ---------------------------------------------------------------------
         # 3) En Önemli Top 10 Feature (Sınıflandırıcı & Regresör)
@@ -366,12 +417,21 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Canlı tahminleri PostgreSQL ml_waste_predictions tablosuna yazma",
     )
+    parser.add_argument(
+        "--skip-benchmarks",
+        action="store_true",
+        help="Tweedie ve regresör ablation kıyaslamalarını atlayarak hızlı çalıştır",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    config = MLConfig(USE_POSTGRES=not args.use_parquet)
+    config = MLConfig(
+        USE_POSTGRES=not args.use_parquet,
+        RUN_TWEEDIE_BENCHMARK=not args.skip_benchmarks,
+        RUN_REGRESSOR_ABLATION=not args.skip_benchmarks,
+    )
     write_db = False if args.skip_db_write else config.USE_POSTGRES
     pipeline = EquoraMLPipeline(config=config, write_predictions_to_db=write_db)
     pipeline.run()

@@ -1,128 +1,163 @@
 {
   "optimal_threshold": 0.54,
+  "optimal_threshold_mode": "economic_action_window_row",
   "default_threshold": 0.5,
-  "fn_cost_mult": 1.0,
-  "fp_cost_mult": 0.25,
-  "search_range": [
-    0.1,
-    0.9,
-    0.01
-  ],
-  "val_optimal_total_loss_tl": 2237463.8,
-  "val_optimal_fn_loss_tl": 542379.6,
-  "val_optimal_fp_loss_tl": 1695084.2,
-  "val_default_050_total_loss_tl": 2311059.23,
-  "val_default_050_fn_loss_tl": 386757.5,
-  "val_default_050_fp_loss_tl": 1924301.73,
-  "val_loss_reduction_vs_050_pct": 3.18,
+  "val_eval_scope": "val_full",
+  "val_eval_rows_all": 7268,
+  "val_eval_rows_action_window": 5061,
+  "action_window_max_dte": 4,
+  "legacy_row_all": {
+    "optimal_threshold": 0.54,
+    "fn_cost_mult": 1.0,
+    "fp_cost_mult": 0.25,
+    "val_optimal_total_loss_tl": 2237463.8,
+    "val_optimal_fn_loss_tl": 542379.6,
+    "val_optimal_fp_loss_tl": 1695084.2,
+    "val_default_050_total_loss_tl": 2311059.23,
+    "val_default_050_fn_loss_tl": 386757.5,
+    "val_default_050_fp_loss_tl": 1924301.73,
+    "val_loss_reduction_vs_050_pct": 3.18
+  },
+  "economic_action_window_row": {
+    "optimal_threshold": 0.54,
+    "fn_cost_mult": 0.7,
+    "fp_cost_mult": 0.2,
+    "val_optimal_total_loss_tl": 671020.33,
+    "val_optimal_fn_loss_tl": 207040.75,
+    "val_optimal_fp_loss_tl": 463979.58,
+    "val_default_050_total_loss_tl": 695205.13,
+    "val_loss_reduction_vs_050_pct": 3.48
+  },
+  "economic_action_window_batch": {
+    "optimal_threshold": 0.69,
+    "unique_batches": 1357,
+    "val_optimal_total_loss_tl": 240229.4,
+    "val_optimal_fn_loss_tl": 101832.99,
+    "val_optimal_fp_loss_tl": 138396.41,
+    "val_default_050_total_loss_tl": 329636.91,
+    "val_default_050_fn_loss_tl": 18841.2,
+    "val_default_050_fp_loss_tl": 310795.71,
+    "val_loss_reduction_vs_050_pct": 27.12
+  },
+  "fn_cost_mult": 0.7,
+  "fp_cost_mult": 0.2,
+  "val_optimal_total_loss_tl": 671020.33,
+  "val_default_050_total_loss_tl": 695205.13,
+  "val_loss_reduction_vs_050_pct": 3.48,
   "scan_summary": [
     {
       "threshold": 0.1,
-      "total_loss_tl": 3159566.57,
-      "fn_loss_tl": 13685.4,
-      "fp_loss_tl": 3145881.17
+      "econ_row_loss_tl": 964546.23,
+      "econ_row_fn_tl": 9043.23,
+      "econ_row_fp_tl": 955503.0
     },
     {
       "threshold": 0.15,
-      "total_loss_tl": 3074016.0,
-      "fn_loss_tl": 24280.8,
-      "fp_loss_tl": 3049735.2
+      "econ_row_loss_tl": 916824.84,
+      "econ_row_fn_tl": 12800.9,
+      "econ_row_fp_tl": 904023.94
     },
     {
       "threshold": 0.2,
-      "total_loss_tl": 2992620.42,
-      "fn_loss_tl": 32088.3,
-      "fp_loss_tl": 2960532.12
+      "econ_row_loss_tl": 871707.69,
+      "econ_row_fn_tl": 14789.95,
+      "econ_row_fp_tl": 856917.74
     },
     {
       "threshold": 0.25,
-      "total_loss_tl": 2909886.1,
-      "fn_loss_tl": 49099.2,
-      "fp_loss_tl": 2860786.9
+      "econ_row_loss_tl": 842047.07,
+      "econ_row_fn_tl": 23018.45,
+      "econ_row_fp_tl": 819028.62
     },
     {
       "threshold": 0.3,
-      "total_loss_tl": 2822085.4,
-      "fn_loss_tl": 84850.0,
-      "fp_loss_tl": 2737235.4
+      "econ_row_loss_tl": 809744.71,
+      "econ_row_fn_tl": 32592.63,
+      "econ_row_fp_tl": 777152.08
     },
     {
       "threshold": 0.35,
-      "total_loss_tl": 2701291.52,
-      "fn_loss_tl": 116395.2,
-      "fp_loss_tl": 2584896.32
+      "econ_row_loss_tl": 775451.24,
+      "econ_row_fn_tl": 42696.64,
+      "econ_row_fp_tl": 732754.6
     },
     {
       "threshold": 0.4,
-      "total_loss_tl": 2559270.27,
-      "fn_loss_tl": 177877.7,
-      "fp_loss_tl": 2381392.57
+      "econ_row_loss_tl": 741168.02,
+      "econ_row_fn_tl": 64864.24,
+      "econ_row_fp_tl": 676303.78
     },
     {
       "threshold": 0.45,
-      "total_loss_tl": 2415765.4,
-      "fn_loss_tl": 263003.8,
-      "fp_loss_tl": 2152761.6
+      "econ_row_loss_tl": 715853.07,
+      "econ_row_fn_tl": 100207.8,
+      "econ_row_fp_tl": 615645.27
     },
     {
       "threshold": 0.5,
-      "total_loss_tl": 2311059.23,
-      "fn_loss_tl": 386757.5,
-      "fp_loss_tl": 1924301.73
+      "econ_row_loss_tl": 695205.13,
+      "econ_row_fn_tl": 155005.69,
+      "econ_row_fp_tl": 540199.44
     },
     {
       "threshold": 0.54,
-      "total_loss_tl": 2237463.8,
-      "fn_loss_tl": 542379.6,
-      "fp_loss_tl": 1695084.2
+      "econ_row_loss_tl": 671020.33,
+      "econ_row_fn_tl": 207040.75,
+      "econ_row_fp_tl": 463979.58
     },
     {
       "threshold": 0.55,
-      "total_loss_tl": 2250821.95,
-      "fn_loss_tl": 594347.8,
-      "fp_loss_tl": 1656474.15
+      "econ_row_loss_tl": 683008.3,
+      "econ_row_fn_tl": 227044.16,
+      "econ_row_fp_tl": 455964.14
     },
     {
       "threshold": 0.6,
-      "total_loss_tl": 2350697.15,
-      "fn_loss_tl": 927681.7,
-      "fp_loss_tl": 1423015.45
+      "econ_row_loss_tl": 713313.87,
+      "econ_row_fn_tl": 335077.12,
+      "econ_row_fp_tl": 378236.75
     },
     {
       "threshold": 0.65,
-      "total_loss_tl": 2392927.38,
-      "fn_loss_tl": 1304542.5,
-      "fp_loss_tl": 1088384.88
+      "econ_row_loss_tl": 744063.28,
+      "econ_row_fn_tl": 450026.15,
+      "econ_row_fp_tl": 294037.13
+    },
+    {
+      "threshold": 0.69,
+      "econ_row_loss_tl": 794211.46,
+      "econ_row_fn_tl": 569941.26,
+      "econ_row_fp_tl": 224270.2
     },
     {
       "threshold": 0.7,
-      "total_loss_tl": 2637491.45,
-      "fn_loss_tl": 1885186.1,
-      "fp_loss_tl": 752305.35
+      "econ_row_loss_tl": 850141.36,
+      "econ_row_fn_tl": 635775.42,
+      "econ_row_fp_tl": 214365.94
     },
     {
       "threshold": 0.75,
-      "total_loss_tl": 3167390.15,
-      "fn_loss_tl": 2646223.8,
-      "fp_loss_tl": 521166.35
+      "econ_row_loss_tl": 1028813.45,
+      "econ_row_fn_tl": 878187.38,
+      "econ_row_fp_tl": 150626.07
     },
     {
       "threshold": 0.8,
-      "total_loss_tl": 3878153.17,
-      "fn_loss_tl": 3584196.0,
-      "fp_loss_tl": 293957.17
+      "econ_row_loss_tl": 1275871.53,
+      "econ_row_fn_tl": 1197635.18,
+      "econ_row_fp_tl": 78236.35
     },
     {
       "threshold": 0.85,
-      "total_loss_tl": 4689222.5,
-      "fn_loss_tl": 4554938.4,
-      "fp_loss_tl": 134284.1
+      "econ_row_loss_tl": 1663774.87,
+      "econ_row_fn_tl": 1634344.81,
+      "econ_row_fp_tl": 29430.06
     },
     {
       "threshold": 0.9,
-      "total_loss_tl": 5841065.97,
-      "fn_loss_tl": 5807642.1,
-      "fp_loss_tl": 33423.88
+      "econ_row_loss_tl": 2154593.43,
+      "econ_row_fn_tl": 2147283.39,
+      "econ_row_fp_tl": 7310.04
     }
   ]
 }

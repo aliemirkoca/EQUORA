@@ -1,129 +1,164 @@
 {
   "threshold_optimization": {
     "optimal_threshold": 0.54,
+    "optimal_threshold_mode": "economic_action_window_row",
     "default_threshold": 0.5,
-    "fn_cost_mult": 1.0,
-    "fp_cost_mult": 0.25,
-    "search_range": [
-      0.1,
-      0.9,
-      0.01
-    ],
-    "val_optimal_total_loss_tl": 2237463.8,
-    "val_optimal_fn_loss_tl": 542379.6,
-    "val_optimal_fp_loss_tl": 1695084.2,
-    "val_default_050_total_loss_tl": 2311059.23,
-    "val_default_050_fn_loss_tl": 386757.5,
-    "val_default_050_fp_loss_tl": 1924301.73,
-    "val_loss_reduction_vs_050_pct": 3.18,
+    "val_eval_scope": "val_full",
+    "val_eval_rows_all": 7268,
+    "val_eval_rows_action_window": 5061,
+    "action_window_max_dte": 4,
+    "legacy_row_all": {
+      "optimal_threshold": 0.54,
+      "fn_cost_mult": 1.0,
+      "fp_cost_mult": 0.25,
+      "val_optimal_total_loss_tl": 2237463.8,
+      "val_optimal_fn_loss_tl": 542379.6,
+      "val_optimal_fp_loss_tl": 1695084.2,
+      "val_default_050_total_loss_tl": 2311059.23,
+      "val_default_050_fn_loss_tl": 386757.5,
+      "val_default_050_fp_loss_tl": 1924301.73,
+      "val_loss_reduction_vs_050_pct": 3.18
+    },
+    "economic_action_window_row": {
+      "optimal_threshold": 0.54,
+      "fn_cost_mult": 0.7,
+      "fp_cost_mult": 0.2,
+      "val_optimal_total_loss_tl": 671020.33,
+      "val_optimal_fn_loss_tl": 207040.75,
+      "val_optimal_fp_loss_tl": 463979.58,
+      "val_default_050_total_loss_tl": 695205.13,
+      "val_loss_reduction_vs_050_pct": 3.48
+    },
+    "economic_action_window_batch": {
+      "optimal_threshold": 0.69,
+      "unique_batches": 1357,
+      "val_optimal_total_loss_tl": 240229.4,
+      "val_optimal_fn_loss_tl": 101832.99,
+      "val_optimal_fp_loss_tl": 138396.41,
+      "val_default_050_total_loss_tl": 329636.91,
+      "val_default_050_fn_loss_tl": 18841.2,
+      "val_default_050_fp_loss_tl": 310795.71,
+      "val_loss_reduction_vs_050_pct": 27.12
+    },
+    "fn_cost_mult": 0.7,
+    "fp_cost_mult": 0.2,
+    "val_optimal_total_loss_tl": 671020.33,
+    "val_default_050_total_loss_tl": 695205.13,
+    "val_loss_reduction_vs_050_pct": 3.48,
     "scan_summary": [
       {
         "threshold": 0.1,
-        "total_loss_tl": 3159566.57,
-        "fn_loss_tl": 13685.4,
-        "fp_loss_tl": 3145881.17
+        "econ_row_loss_tl": 964546.23,
+        "econ_row_fn_tl": 9043.23,
+        "econ_row_fp_tl": 955503.0
       },
       {
         "threshold": 0.15,
-        "total_loss_tl": 3074016.0,
-        "fn_loss_tl": 24280.8,
-        "fp_loss_tl": 3049735.2
+        "econ_row_loss_tl": 916824.84,
+        "econ_row_fn_tl": 12800.9,
+        "econ_row_fp_tl": 904023.94
       },
       {
         "threshold": 0.2,
-        "total_loss_tl": 2992620.42,
-        "fn_loss_tl": 32088.3,
-        "fp_loss_tl": 2960532.12
+        "econ_row_loss_tl": 871707.69,
+        "econ_row_fn_tl": 14789.95,
+        "econ_row_fp_tl": 856917.74
       },
       {
         "threshold": 0.25,
-        "total_loss_tl": 2909886.1,
-        "fn_loss_tl": 49099.2,
-        "fp_loss_tl": 2860786.9
+        "econ_row_loss_tl": 842047.07,
+        "econ_row_fn_tl": 23018.45,
+        "econ_row_fp_tl": 819028.62
       },
       {
         "threshold": 0.3,
-        "total_loss_tl": 2822085.4,
-        "fn_loss_tl": 84850.0,
-        "fp_loss_tl": 2737235.4
+        "econ_row_loss_tl": 809744.71,
+        "econ_row_fn_tl": 32592.63,
+        "econ_row_fp_tl": 777152.08
       },
       {
         "threshold": 0.35,
-        "total_loss_tl": 2701291.52,
-        "fn_loss_tl": 116395.2,
-        "fp_loss_tl": 2584896.32
+        "econ_row_loss_tl": 775451.24,
+        "econ_row_fn_tl": 42696.64,
+        "econ_row_fp_tl": 732754.6
       },
       {
         "threshold": 0.4,
-        "total_loss_tl": 2559270.27,
-        "fn_loss_tl": 177877.7,
-        "fp_loss_tl": 2381392.57
+        "econ_row_loss_tl": 741168.02,
+        "econ_row_fn_tl": 64864.24,
+        "econ_row_fp_tl": 676303.78
       },
       {
         "threshold": 0.45,
-        "total_loss_tl": 2415765.4,
-        "fn_loss_tl": 263003.8,
-        "fp_loss_tl": 2152761.6
+        "econ_row_loss_tl": 715853.07,
+        "econ_row_fn_tl": 100207.8,
+        "econ_row_fp_tl": 615645.27
       },
       {
         "threshold": 0.5,
-        "total_loss_tl": 2311059.23,
-        "fn_loss_tl": 386757.5,
-        "fp_loss_tl": 1924301.73
+        "econ_row_loss_tl": 695205.13,
+        "econ_row_fn_tl": 155005.69,
+        "econ_row_fp_tl": 540199.44
       },
       {
         "threshold": 0.54,
-        "total_loss_tl": 2237463.8,
-        "fn_loss_tl": 542379.6,
-        "fp_loss_tl": 1695084.2
+        "econ_row_loss_tl": 671020.33,
+        "econ_row_fn_tl": 207040.75,
+        "econ_row_fp_tl": 463979.58
       },
       {
         "threshold": 0.55,
-        "total_loss_tl": 2250821.95,
-        "fn_loss_tl": 594347.8,
-        "fp_loss_tl": 1656474.15
+        "econ_row_loss_tl": 683008.3,
+        "econ_row_fn_tl": 227044.16,
+        "econ_row_fp_tl": 455964.14
       },
       {
         "threshold": 0.6,
-        "total_loss_tl": 2350697.15,
-        "fn_loss_tl": 927681.7,
-        "fp_loss_tl": 1423015.45
+        "econ_row_loss_tl": 713313.87,
+        "econ_row_fn_tl": 335077.12,
+        "econ_row_fp_tl": 378236.75
       },
       {
         "threshold": 0.65,
-        "total_loss_tl": 2392927.38,
-        "fn_loss_tl": 1304542.5,
-        "fp_loss_tl": 1088384.88
+        "econ_row_loss_tl": 744063.28,
+        "econ_row_fn_tl": 450026.15,
+        "econ_row_fp_tl": 294037.13
+      },
+      {
+        "threshold": 0.69,
+        "econ_row_loss_tl": 794211.46,
+        "econ_row_fn_tl": 569941.26,
+        "econ_row_fp_tl": 224270.2
       },
       {
         "threshold": 0.7,
-        "total_loss_tl": 2637491.45,
-        "fn_loss_tl": 1885186.1,
-        "fp_loss_tl": 752305.35
+        "econ_row_loss_tl": 850141.36,
+        "econ_row_fn_tl": 635775.42,
+        "econ_row_fp_tl": 214365.94
       },
       {
         "threshold": 0.75,
-        "total_loss_tl": 3167390.15,
-        "fn_loss_tl": 2646223.8,
-        "fp_loss_tl": 521166.35
+        "econ_row_loss_tl": 1028813.45,
+        "econ_row_fn_tl": 878187.38,
+        "econ_row_fp_tl": 150626.07
       },
       {
         "threshold": 0.8,
-        "total_loss_tl": 3878153.17,
-        "fn_loss_tl": 3584196.0,
-        "fp_loss_tl": 293957.17
+        "econ_row_loss_tl": 1275871.53,
+        "econ_row_fn_tl": 1197635.18,
+        "econ_row_fp_tl": 78236.35
       },
       {
         "threshold": 0.85,
-        "total_loss_tl": 4689222.5,
-        "fn_loss_tl": 4554938.4,
-        "fp_loss_tl": 134284.1
+        "econ_row_loss_tl": 1663774.87,
+        "econ_row_fn_tl": 1634344.81,
+        "econ_row_fp_tl": 29430.06
       },
       {
         "threshold": 0.9,
-        "total_loss_tl": 5841065.97,
-        "fn_loss_tl": 5807642.1,
-        "fp_loss_tl": 33423.88
+        "econ_row_loss_tl": 2154593.43,
+        "econ_row_fn_tl": 2147283.39,
+        "econ_row_fp_tl": 7310.04
       }
     ]
   },
@@ -144,10 +179,40 @@
       "recall": 0.8544,
       "f1_score": 0.8269
     },
-    "row_financial_error_050_tl": 1848145.9,
-    "row_financial_error_opt_tl": 1839616.27,
-    "row_fn_error_opt_tl": 555170.6,
-    "row_fp_error_opt_tl": 1284445.67
+    "legacy_theta": {
+      "threshold": 0.54,
+      "roc_auc": 0.8496,
+      "pr_auc": 0.9061,
+      "precision": 0.8011,
+      "recall": 0.8544,
+      "f1_score": 0.8269
+    },
+    "row_financial_error_legacy_050_tl": 1848145.9,
+    "row_financial_error_legacy_opt_tl": 1839616.27
+  },
+  "test_classification_action_window": {
+    "max_dte": 4,
+    "rows": 5069,
+    "default_050": {
+      "threshold": 0.5,
+      "roc_auc": 0.8669,
+      "pr_auc": 0.9279,
+      "precision": 0.8154,
+      "recall": 0.892,
+      "f1_score": 0.852
+    },
+    "optimal_theta": {
+      "threshold": 0.54,
+      "roc_auc": 0.8669,
+      "pr_auc": 0.9279,
+      "precision": 0.8289,
+      "recall": 0.87,
+      "f1_score": 0.849
+    },
+    "econ_row_error_050_tl": 533996.81,
+    "econ_row_error_opt_tl": 546597.18,
+    "econ_row_fn_opt_tl": 226341.5,
+    "econ_row_fp_opt_tl": 320255.68
   },
   "test_classification_dte_ge_2": {
     "rows": 4935,
@@ -169,49 +234,228 @@
     }
   },
   "test_regression": {
+    "regressor_target_mode": "log1p_l2",
+    "duan_smearing_factor": 1.12412,
     "conditional_positive_waste_rows": 4279,
     "conditional_q_hat": {
-      "mae": 5.3538,
-      "rmse": 8.1417,
-      "wape": 0.3731,
-      "wape_pct": 37.31
+      "mae": 5.3004,
+      "rmse": 8.2779,
+      "wape": 0.3694,
+      "wape_pct": 36.94
     },
     "overall_all_rows": 6813,
     "overall_expected_w_hat": {
-      "mae": 5.2889,
-      "rmse": 8.1655,
-      "wape": 0.5868,
-      "wape_pct": 58.68
+      "mae": 5.1948,
+      "rmse": 8.2328,
+      "wape": 0.5764,
+      "wape_pct": 57.64
+    },
+    "zero_waste_metrics": {
+      "zero_waste_rows": 2534,
+      "mean_false_positive_qty": 4.2929,
+      "median_false_positive_qty": 2.8582,
+      "pct_pred_ge_1_unit": 73.64
+    }
+  },
+  "calibration_and_regressor_ablation": {
+    "calibration_method": "isotonic",
+    "calibrator_active": false,
+    "val_calibration": {
+      "active": false,
+      "method": "isotonic",
+      "val_cal_rows": 3632,
+      "val_check_rows": 3636,
+      "brier_raw": 0.16122,
+      "brier_calibrated": 0.16446,
+      "brier_improvement": -0.00325,
+      "ece_10bin_raw": 0.03389,
+      "ece_10bin_calibrated": 0.05778,
+      "ece_improvement": -0.02388
+    },
+    "test_calibration": {
+      "brier_raw": 0.15015,
+      "brier_calibrated": 0.15015,
+      "brier_improvement": 0.0,
+      "ece_10bin_raw": 0.01143,
+      "ece_10bin_calibrated": 0.01143,
+      "ece_improvement": 0.0
+    },
+    "regressor_ablation_val": [
+      {
+        "mode": "raw_l2",
+        "val_mae": 5.4239,
+        "val_rmse": 7.7593,
+        "val_wape": 0.3842,
+        "val_wape_pct": 38.42,
+        "duan_smearing": 1.0,
+        "best_iteration": 162,
+        "selected": false
+      },
+      {
+        "mode": "log1p_l2",
+        "val_mae": 5.2439,
+        "val_rmse": 7.6706,
+        "val_wape": 0.3714,
+        "val_wape_pct": 37.14,
+        "duan_smearing": 1.12412,
+        "best_iteration": 194,
+        "selected": true
+      },
+      {
+        "mode": "raw_l1",
+        "val_mae": 5.3472,
+        "val_rmse": 7.7777,
+        "val_wape": 0.3788,
+        "val_wape_pct": 37.88,
+        "duan_smearing": 1.0,
+        "best_iteration": 201,
+        "selected": false
+      },
+      {
+        "mode": "poisson",
+        "val_mae": 5.3697,
+        "val_rmse": 7.7314,
+        "val_wape": 0.3804,
+        "val_wape_pct": 38.04,
+        "duan_smearing": 1.0,
+        "best_iteration": 440,
+        "selected": false
+      }
+    ]
+  },
+  "hurdle_vs_tweedie_ablation": {
+    "hurdle": {
+      "regressor_mode": "log1p_l2",
+      "calibrator_active": false,
+      "test_all_metrics": {
+        "mae": 5.1948,
+        "rmse": 8.2328,
+        "wape": 0.5764,
+        "wape_pct": 57.64
+      },
+      "test_zero_waste_metrics": {
+        "zero_waste_rows": 2534,
+        "mean_false_positive_qty": 4.2929,
+        "median_false_positive_qty": 2.8582,
+        "pct_pred_ge_1_unit": 73.64
+      },
+      "test_positive_waste_metrics": {
+        "mae": 5.7289,
+        "rmse": 9.1613,
+        "wape": 0.3992,
+        "wape_pct": 39.92
+      },
+      "test_conditional_q_hat": {
+        "mae": 5.3004,
+        "rmse": 8.2779,
+        "wape": 0.3694,
+        "wape_pct": 36.94
+      },
+      "test_ranking_metrics": {
+        "roc_auc": 0.8496,
+        "pr_auc": 0.9061
+      }
+    },
+    "tweedie": {
+      "best_variance_power": 1.4,
+      "best_iteration": 353,
+      "model_path": "C:\\Users\\aliem\\OneDrive\\Desktop\\EQUORA\\models\\hurdle_v1\\tweedie_benchmark.pkl",
+      "val_grid_results": [
+        {
+          "variance_power": 1.2,
+          "best_iteration": 462,
+          "val_mae": 5.0712,
+          "val_rmse": 7.5066,
+          "val_wape": 0.5978,
+          "val_wape_pct": 59.78,
+          "selected": false
+        },
+        {
+          "variance_power": 1.4,
+          "best_iteration": 353,
+          "val_mae": 5.0486,
+          "val_rmse": 7.489,
+          "val_wape": 0.5952,
+          "val_wape_pct": 59.52,
+          "selected": true
+        },
+        {
+          "variance_power": 1.6,
+          "best_iteration": 161,
+          "val_mae": 5.2207,
+          "val_rmse": 7.603,
+          "val_wape": 0.6155,
+          "val_wape_pct": 61.55,
+          "selected": false
+        },
+        {
+          "variance_power": 1.8,
+          "best_iteration": 57,
+          "val_mae": 5.8485,
+          "val_rmse": 8.431,
+          "val_wape": 0.6895,
+          "val_wape_pct": 68.95,
+          "selected": false
+        }
+      ],
+      "test_all_metrics": {
+        "mae": 5.2174,
+        "rmse": 8.2689,
+        "wape": 0.5789,
+        "wape_pct": 57.89
+      },
+      "test_zero_waste_metrics": {
+        "zero_waste_rows": 2534,
+        "mean_false_positive_qty": 4.2701,
+        "median_false_positive_qty": 2.7662,
+        "pct_pred_ge_1_unit": 70.21
+      },
+      "test_positive_waste_metrics": {
+        "mae": 5.7783,
+        "rmse": 9.1555,
+        "wape": 0.4027,
+        "wape_pct": 40.27,
+        "positive_waste_rows": 4279
+      },
+      "test_ranking_metrics": {
+        "roc_auc": 0.8033,
+        "pr_auc": 0.859
+      }
+    },
+    "comparison": {
+      "tweedie_minus_hurdle_wape_pct": 0.25,
+      "lower_wape_winner": "Hurdle",
+      "higher_pr_auc_winner": "Hurdle"
     }
   },
   "business_metrics_test": {
     "total_unique_test_batches": 1362,
     "total_waste_batches": 756,
-    "caught_early_48h_waste_batches": 681,
-    "missed_waste_batches": 75,
-    "false_positive_batches_48h": 314,
-    "early_catch_rate_by_batch_pct": 90.08,
-    "early_catch_rate_by_units_pct": 95.35,
-    "early_catch_rate_by_tl_pct": 97.75,
+    "caught_early_48h_waste_batches": 677,
+    "missed_waste_batches": 79,
+    "false_positive_batches_48h": 264,
+    "early_catch_rate_by_batch_pct": 89.55,
+    "early_catch_rate_by_units_pct": 95.19,
+    "early_catch_rate_by_tl_pct": 97.56,
     "exact_dte2_snapshot_recall_pct": 84.26,
     "total_test_waste_units": 10623,
-    "rescueable_units_48h": 10129,
-    "rescueable_gross_value_tl": 1559247.3,
+    "rescueable_units_48h": 10112,
+    "rescueable_gross_value_tl": 1556264.4,
     "baseline_no_action_loss_tl": 1595138.1,
-    "equora_missed_waste_fn_loss_tl": 35890.8,
-    "equora_tp_discount_cost_tl": 389811.82,
-    "equora_fp_discount_cost_tl": 471633.35,
-    "equora_estimated_total_loss_tl": 897335.98,
-    "equora_net_savings_tl": 697802.12,
-    "equora_loss_reduction_pct": 43.75,
+    "equora_missed_waste_fn_loss_tl": 38873.7,
+    "equora_tp_discount_cost_tl": 311252.88,
+    "equora_fp_discount_cost_tl": 184889.54,
+    "equora_estimated_total_loss_tl": 535016.12,
+    "equora_net_savings_tl": 1060121.98,
+    "equora_loss_reduction_pct": 66.46,
     "esg_co2_impact": {
       "baseline_waste_co2_kg": 54401.67,
       "baseline_waste_co2_tons": 54.402,
-      "prevented_co2_48h_kg": 53513.99,
-      "prevented_co2_48h_tons": 53.514,
-      "prevented_co2_48h_pct": 98.37,
-      "prevented_equivalent_car_km": 314788.2,
-      "prevented_equivalent_tree_years": 2458.2,
+      "prevented_co2_48h_kg": 53429.12,
+      "prevented_co2_48h_tons": 53.429,
+      "prevented_co2_48h_pct": 98.21,
+      "prevented_equivalent_car_km": 314289.0,
+      "prevented_equivalent_tree_years": 2454.3,
       "category_breakdown": [
         {
           "category": "Et & Tavuk",
@@ -225,14 +469,14 @@
           "waste_units": 1368.0,
           "waste_tl": 158674.2,
           "baseline_co2_kg": 6289.35,
-          "prevented_co2_48h_kg": 6270.45
+          "prevented_co2_48h_kg": 6210.6
         },
         {
           "category": "Şarküteri",
           "waste_units": 427.0,
           "waste_tl": 66480.3,
           "baseline_co2_kg": 2513.02,
-          "prevented_co2_48h_kg": 2513.02
+          "prevented_co2_48h_kg": 2488.0
         },
         {
           "category": "Fırın & Unlu Mamul",
@@ -372,94 +616,94 @@
     ],
     "regressor": [
       {
-        "feature": "remaining_qty",
-        "gain": 7612396.47,
-        "gain_pct": 29.32,
-        "split": 454
+        "feature": "risk_index",
+        "gain": 28140.17,
+        "gain_pct": 24.78,
+        "split": 591
       },
       {
-        "feature": "risk_index",
-        "gain": 5160232.84,
-        "gain_pct": 19.87,
-        "split": 508
+        "feature": "remaining_qty",
+        "gain": 28101.68,
+        "gain_pct": 24.75,
+        "split": 407
       },
       {
         "feature": "effective_stock_qty",
-        "gain": 3527485.01,
-        "gain_pct": 13.59,
-        "split": 482
+        "gain": 19415.18,
+        "gain_pct": 17.1,
+        "split": 469
       },
       {
         "feature": "life_ratio",
-        "gain": 2216419.17,
-        "gain_pct": 8.54,
-        "split": 357
+        "gain": 6949.6,
+        "gain_pct": 6.12,
+        "split": 366
       },
       {
         "feature": "initial_in_qty",
-        "gain": 2016398.22,
-        "gain_pct": 7.77,
-        "split": 351
+        "gain": 6046.6,
+        "gain_pct": 5.33,
+        "split": 486
       },
       {
         "feature": "days_to_expiry",
-        "gain": 1199446.78,
-        "gain_pct": 4.62,
-        "split": 189
+        "gain": 4040.19,
+        "gain_pct": 3.56,
+        "split": 161
       },
       {
         "feature": "vel_7d",
-        "gain": 676026.48,
-        "gain_pct": 2.6,
-        "split": 303
+        "gain": 3843.24,
+        "gain_pct": 3.38,
+        "split": 402
       },
       {
         "feature": "vel_std_7d",
-        "gain": 641995.8,
-        "gain_pct": 2.47,
-        "split": 318
-      },
-      {
-        "feature": "unit_price",
-        "gain": 488796.96,
-        "gain_pct": 1.88,
-        "split": 326
-      },
-      {
-        "feature": "weekend_days_left",
-        "gain": 384242.35,
-        "gain_pct": 1.48,
-        "split": 150
+        "gain": 3407.6,
+        "gain_pct": 3.0,
+        "split": 462
       },
       {
         "feature": "vel_14d",
-        "gain": 379390.55,
-        "gain_pct": 1.46,
-        "split": 244
+        "gain": 2421.52,
+        "gain_pct": 2.13,
+        "split": 370
+      },
+      {
+        "feature": "unit_price",
+        "gain": 2024.46,
+        "gain_pct": 1.78,
+        "split": 406
       },
       {
         "feature": "remaining_ratio",
-        "gain": 323135.03,
-        "gain_pct": 1.24,
-        "split": 200
+        "gain": 1522.61,
+        "gain_pct": 1.34,
+        "split": 246
+      },
+      {
+        "feature": "weekend_days_left",
+        "gain": 1240.72,
+        "gain_pct": 1.09,
+        "split": 158
       },
       {
         "feature": "rolling_3d_avg_discount",
-        "gain": 245746.8,
-        "gain_pct": 0.95,
-        "split": 165
+        "gain": 952.81,
+        "gain_pct": 0.84,
+        "split": 206
       },
       {
-        "feature": "days_of_cover",
-        "gain": 194480.37,
-        "gain_pct": 0.75,
-        "split": 149
+        "feature": "demand_momentum",
+        "gain": 884.58,
+        "gain_pct": 0.78,
+        "split": 204
       },
       {
         "feature": "shelf_life_days",
-        "gain": 167282.67,
-        "gain_pct": 0.64,
-        "split": 92
+        "gain": 873.51,
+        "gain_pct": 0.77,
+        "split": 165
       }
     ]
   }

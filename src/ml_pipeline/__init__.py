@@ -14,6 +14,7 @@ from src.ml_pipeline.hurdle_model import EquoraHurdleModel
 from src.ml_pipeline.inference import LiveRiskPredictor
 from src.ml_pipeline.snapshot_builder import DailySnapshotBuilder
 from src.ml_pipeline.splitter import GroupTemporalSplitter
+from src.ml_pipeline.tweedie_benchmark import TweedieWasteBenchmark
 
 __all__ = [
     "MLConfig",
@@ -22,6 +23,7 @@ __all__ = [
     "WasteFeatureEngineer",
     "GroupTemporalSplitter",
     "EquoraHurdleModel",
+    "TweedieWasteBenchmark",
     "ModelEvaluator",
     "LiveRiskPredictor",
 ]

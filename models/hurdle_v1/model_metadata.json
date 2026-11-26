@@ -1,6 +1,6 @@
 {
-  "model_version": "hurdle_v1",
-  "trained_at_utc": "2026-11-25T19:16:39.077378+00:00",
+  "model_version": "hurdle_v1_5",
+  "trained_at_utc": "2026-11-25T20:31:05.511205+00:00",
   "random_state": 42,
   "feature_columns": [
     "upstream_fefo_qty",
@@ -44,7 +44,65 @@
   "train_rows_positive_waste": 21549,
   "val_rows_positive_waste": 4367,
   "classifier_best_iteration": 179,
-  "regressor_best_iteration": 162,
+  "regressor_best_iteration": 194,
+  "calibrator_active": false,
+  "calibration_method": "isotonic",
+  "calibration_val_metrics": {
+    "active": false,
+    "method": "isotonic",
+    "val_cal_rows": 3632,
+    "val_check_rows": 3636,
+    "brier_raw": 0.16122,
+    "brier_calibrated": 0.16446,
+    "brier_improvement": -0.00325,
+    "ece_10bin_raw": 0.03389,
+    "ece_10bin_calibrated": 0.05778,
+    "ece_improvement": -0.02388
+  },
+  "regressor_target_mode": "log1p_l2",
+  "duan_smearing_factor": 1.124125,
+  "regressor_ablation_results": [
+    {
+      "mode": "raw_l2",
+      "val_mae": 5.4239,
+      "val_rmse": 7.7593,
+      "val_wape": 0.3842,
+      "val_wape_pct": 38.42,
+      "duan_smearing": 1.0,
+      "best_iteration": 162,
+      "selected": false
+    },
+    {
+      "mode": "log1p_l2",
+      "val_mae": 5.2439,
+      "val_rmse": 7.6706,
+      "val_wape": 0.3714,
+      "val_wape_pct": 37.14,
+      "duan_smearing": 1.12412,
+      "best_iteration": 194,
+      "selected": true
+    },
+    {
+      "mode": "raw_l1",
+      "val_mae": 5.3472,
+      "val_rmse": 7.7777,
+      "val_wape": 0.3788,
+      "val_wape_pct": 37.88,
+      "duan_smearing": 1.0,
+      "best_iteration": 201,
+      "selected": false
+    },
+    {
+      "mode": "poisson",
+      "val_mae": 5.3697,
+      "val_rmse": 7.7314,
+      "val_wape": 0.3804,
+      "val_wape_pct": 38.04,
+      "duan_smearing": 1.0,
+      "best_iteration": 440,
+      "selected": false
+    }
+  ],
   "classifier_params": {
     "objective": "binary",
     "metric": [

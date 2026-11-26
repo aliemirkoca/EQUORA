@@ -1,0 +1,38 @@
+{
+  "policy_version": "maskable_ppo_v1",
+  "trained_at_utc": "2026-11-25T20:46:15.918866+00:00",
+  "device": "cpu",
+  "seed": 42,
+  "phase1_threshold_used": 0.54,
+  "discount_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "discount_start_max_dte": 4,
+  "discount_stop_dte": 2,
+  "enforce_monotonic_discount": true,
+  "gate_with_phase1_threshold": true,
+  "equora_commission_rate": 0.08,
+  "residual_waste_penalty_mult": 0.35,
+  "co2_shadow_price_tl_per_kg": 2.5,
+  "ppo_timesteps": 200000,
+  "ppo_train_sec": 295.85,
+  "dqn_trained": true,
+  "dqn_timesteps": 120000,
+  "dqn_train_sec": 162.94,
+  "train_episodes": 6768,
+  "test_episodes": 2257,
+  "train_date_range": [
+    "2026-05-29",
+    "2026-10-05"
+  ],
+  "test_date_range": [
+    "2026-10-05",
+    "2026-11-21"
+  ],
+  "batch_overlap": 0
+}
